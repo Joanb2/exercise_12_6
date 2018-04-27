@@ -17,5 +17,8 @@ function showCountriesList(resp) {
 	countriesList.empty();
 	  resp.forEach(function(item){
 	   	$('<li>').text(item.name).appendTo(countriesList);
+	   	$('<p>').text("Capital: " + item.capital).appendTo(countriesList);
+	   	$('<p>').text("Population: " + item.population).appendTo(countriesList);
+	   	$('<p>').text("Area: " + item.area + " km2").appendTo(countriesList);
 	});
 }
