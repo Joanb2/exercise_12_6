@@ -16,9 +16,12 @@ function searchCountries() {
 function showCountriesList(resp) {
 	countriesList.empty();
 	  resp.forEach(function(item){
-	   	$('<li>').text(item.name).appendTo(countriesList);
-	   	$('<p>').text("Capital: " + item.capital).appendTo('li');
-	   	$('<p>').text("Population: " + item.population).appendTo('li');
-	   	$('<p>').text("Area: " + item.area + " km2").appendTo('li');
+	  	$('<li>').appendTo(countriesList);
+	  	var liElement = $('li');
+		liElement.addClass('liClass');
+	   	$('<h3>').text(item.name).appendTo(liElement);
+	   	$('<p>').text("Capital: " + item.capital).appendTo(liElement);
+	   	$('<p>').text("Population: " + item.population).appendTo(liElement);
+	   	$('<p>').text("Area: " + item.area + " km2").appendTo(liElement);
 	});
 }
