@@ -12,13 +12,14 @@ function searchCountries() {
 	  		success: showCountriesList
 	  	});
 }
+var liElement = $('li');
+liElement.addClass('liClass');
 
 function showCountriesList(resp) {
 	countriesList.empty();
+	liElement.empty();
 	  resp.forEach(function(item){
-	  	$('<li>').appendTo(countriesList);
-	  	var liElement = $('li');
-		liElement.addClass('liClass');
+	  	liElement.appendTo(countriesList);
 	   	$('<h3>').text(item.name).appendTo(liElement);
 	   	$('<p>').text("Capital: " + item.capital).appendTo(liElement);
 	   	$('<p>').text("Population: " + item.population).appendTo(liElement);
