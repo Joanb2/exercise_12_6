@@ -12,15 +12,16 @@ function searchCountries() {
 	  		success: showCountriesList
 	  	});
 }
-var liElement = $('li');
-liElement.addClass('liClass');
 
 function showCountriesList(resp) {
 	countriesList.empty();
-	liElement.empty();
 	  resp.forEach(function(item){
+	  	var liElement = $('<li>');
+		liElement.addClass('liClass');
 	  	liElement.appendTo(countriesList);
-	   	$('<h3>').text(item.name).appendTo(liElement);
+	  	var h3 = $('<h3>');
+	   	h3.text(item.name);
+	   	h3.appendTo(liElement);
 	   	$('<p>').text("Capital: " + item.capital).appendTo(liElement);
 	   	$('<p>').text("Population: " + item.population).appendTo(liElement);
 	   	$('<p>').text("Area: " + item.area + " km2").appendTo(liElement);
